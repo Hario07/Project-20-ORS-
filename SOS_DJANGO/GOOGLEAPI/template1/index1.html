@@ -1,0 +1,134 @@
+{% load socialaccount %}
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--Used for icon-->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+{% load static %}
+
+<script>
+
+    function selectAll(source) {
+        checkboxes = document.getElementsByName('ids');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+    function selectone(so) {
+        checkboxes = document.getElementById('mainbox');
+        unbox = document.getElementsByName('ids');
+        var box = false;
+        for (var i = 0, n = unbox.length; i < n; i++) {
+            if (unbox[i].checked == true) {
+                box = true;
+            } else {
+                box = false;
+                break;
+            }
+        }
+        checkboxes.checked = box;
+    }
+</script>
+<style>
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #343a40 !important;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(224, 179, 31, 0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-menu a {
+        color: whitesmoke;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-menu a:hover {
+        background-color: #686464
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="#">
+        <img src="{% static '/images/customLogo1.png'%}" width="70" height="30" alt="">
+
+        <a class="navbar-brand" href="#">Rays Training and Placements </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tutorials</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About Us
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">About Us</a>
+                        <a class="dropdown-item" href="#">News</a>
+                        <div class="dropdown-divider">Career</div>
+                        <a class="dropdown-item" href="#">Gallery</a>
+                        <a class="dropdown-item" href="/accounts/logout">Logout</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Welcome {{user.username}}</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+</nav>
+
+<h1 class="display-2">Central India's most trusted </h1>
+<h1 class="display-4">technical education platform</h1>
+<h1 class="lead">Power your future with highly paid </h1>
+<img src="{% static '/images/MainBuilding.JPG' %}" alt="" width="500px">
+<div class="container">
+    <p class="blockquote">Rays Technologies is premium Corporate Training and Placement company. It is providing
+        training on
+        cutting-edge
+        technologies like AI, Machine Learning, Spring, Angular, React, Java, Python, Automated Testing, etc. After IIT
+        and
+        NIT, Rays is one of the leading institute in India from where IT Engineers are getting highest packages in
+        multinational companies.
+
+        Rays Technologies is an ISO 9001:2015 certified Company. It was established in 2006 and is active in multiple
+        cities
+        in India. We started our company with ‘SUNRAYS’ brand name that was later renamed RAYS Technologies in 2015. We
+        primarily deal in Information Technology Services, Staffing Solutions, Corporate Training, and Career
+        Consultancy.
+        We aim at providing highly trained cutting-edge IT professionals to the IT Industry.
+
+        We provide training to Corporate Employees and Professionals in end-to-end enterprise solutions. Our training
+        contents are designed and developed in accordance with the current industry standards and future requirements.
+        Our
+        courses are highly valued in the corporate IT world. Our courses cover the most comprehensive portfolio of IT.
+    </p>
+</div>
+{% include "./Footer.html"%}
